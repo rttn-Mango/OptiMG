@@ -7,8 +7,8 @@ import dotenv from 'dotenv'
 
 const PORT = 3000;
 const app = express();
-const env = dotenv.config();
-tinify.key = `${env.parsed.VITE_API_KEY}`
+dotenv.config();
+tinify.key = `${process.env.VITE_API_KEY}`
 
 app.use(cors())
 app.use(bodyParser.json({limit: '10mb', extended: true}));
