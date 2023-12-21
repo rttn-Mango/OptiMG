@@ -11,7 +11,7 @@ dotenv.config();
 tinify.key = `${process.env.VITE_API_KEY}`
 
 app.use(cors())
-app.use(bodyParser.json({limit: '10mb', extended: true}));
+app.use(bodyParser.json({limit: '5mb', extended: true}));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/compressed', async (req, res) => {

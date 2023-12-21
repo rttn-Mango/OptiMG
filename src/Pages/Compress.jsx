@@ -23,9 +23,12 @@ export default function Compress(){
 
         return compressedFile.map(file => {
             return(
-            <div key={file.base64}>
+            <div className="files__card" key={file.base64}>
                 <p>{file.name}</p>
-                <a title="Compressed Image" download={file.name} key={file.base64} href={`data:${file.type};base64,${file.base64}`}>{dl}</a>         
+                <div className="files__card--download">
+                    <p className="secondary">{file.size} ᴋʙ</p>
+                    <a title="Download" download={file.name.slice(0, file.name.lastIndexOf('.'))} key={file.base64} href={`data:${file.type};base64,${file.base64}`}><img src={dl} alt="Download" /></a>
+                </div>
             </div>
             )
         })
@@ -59,11 +62,15 @@ export default function Compress(){
                         
                                     try{
                                         const res = await axios.post(`https://minify-backend.onrender.com/compressed`, {base64Data});
+
+                                        //Magic formula from stackoverflow that I don't understand
+                                        let size = 4 * Math.ceil((res.data.base64.length / 3))*0.5624896334383812;
+
                                         const compressedData = {
                                             base64: `${res.data.base64}`,
                                             type: file.type,
                                             name: file.name,
-                                            size: file.size,
+                                            size: Math.round(size/1024),
                                         }
                                         resolve(compressedData)
                                         
@@ -101,10 +108,10 @@ export default function Compress(){
             </section>
 
             <section className="compress__instruction">
-                <h1>How to Use</h1>
+                <h1> <span className="primary">How</span> to Use</h1>
                 <section className="compress__instruction--card">
                     <>
-                        <h2>Choose your Assets</h2>
+                        <h2><span className="secondary">Choose</span> your Assets</h2>
                         <ul role="list">
                             <li>Click the dashed blue box to open your folder.</li>
                             <li>Select the File/s you want to optimize.</li>
@@ -116,7 +123,7 @@ export default function Compress(){
 
                 <section className="compress__instruction--card">
                     <>
-                        <h2>Chill out for a bit</h2>
+                        <h2><span className="secondary">Chill</span> out for a bit</h2>
                         <ul role="list">
                             <li>Wait for the loading to finish.</li>
                             <li>Grab yourself a coffee and chill out for a bit.</li>
@@ -127,7 +134,7 @@ export default function Compress(){
 
                 <section className="compress__instruction--card">
                     <>
-                        <h2>Download your files</h2>
+                        <h2><span className="secondary">Download</span> your files</h2>
                         <ul role="list">
                             <li>Once compression is done, click the Download button.</li>
                             <li>You may also Click the Download All button if there are more files.</li>
@@ -138,7 +145,7 @@ export default function Compress(){
             </section>
 
             <section className="compress__closing">
-                <p aria-label="It's that Simple!">It&apos;s that <span>Simple</span>!</p>
+                <p>It&apos;s that <span className="primary">Simple</span>!</p>
                 <p>Minify simplifies the compression process, ensuring your digital assets are optimized for speed and efficiency.</p>
             </section>
 
