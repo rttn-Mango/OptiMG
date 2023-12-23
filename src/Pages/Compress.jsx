@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 
-//Component
+//Components
 import CTA from "../Components/CTA";
 import DragAndDrop from "../Components/DragAndDrop";
 
@@ -27,7 +27,7 @@ export default function Compress(){
                 <p>{file.name}</p>
                 <div className="files__card--download">
                     <p className="secondary">{file.size} ᴋʙ</p>
-                    <a title="Download" download={file.name.slice(0, file.name.lastIndexOf('.'))} key={file.base64} href={`data:${file.type};base64,${file.base64}`}><img src={dl} alt="Download" /></a>
+                    <a title="Download" download={file.name.slice(0, file.name.lastIndexOf('.'))} key={file.base64} href={`data:${file.type};base64,${file.base64}`}><img src={dl} alt="Download" draggable="false"/></a>
                 </div>
             </div>
             )
@@ -64,13 +64,13 @@ export default function Compress(){
                                         const res = await axios.post(`https://minify-backend.onrender.com/compressed`, {base64Data});
 
                                         //Magic formula from stackoverflow that I don't understand
-                                        let size = 4 * Math.ceil((res.data.base64.length / 3))*0.5624896334383812;
+                                        let newFileSize = 4 * Math.ceil((res.data.base64.length / 3))*0.5624896334383812;
 
                                         const compressedData = {
                                             base64: `${res.data.base64}`,
                                             type: file.type,
                                             name: file.name,
-                                            size: Math.round(size/1024),
+                                            size: Math.round(newFileSize/1024),
                                         }
                                         resolve(compressedData)
                                         

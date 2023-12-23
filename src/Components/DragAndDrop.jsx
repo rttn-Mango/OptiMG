@@ -4,7 +4,7 @@ export default function DragAndDrop({setUploadedFile}){
     const handleDragOver = e => e.preventDefault();
     const handleDrop = e => {
         e.preventDefault();
-
+        
         //Converts the list of files to an array
         const files = Array.from(e.dataTransfer.files);
         setUploadedFile(files);
