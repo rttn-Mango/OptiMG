@@ -34,7 +34,7 @@ export default function Compress(){
         })
     }
 
-    //For downloading all images when Download All button is clicked
+    //For downloading all images
     const downloadAllImages = () => {
         const images = document.querySelectorAll('a');
         images.forEach(image => image.click())
@@ -150,7 +150,7 @@ export default function Compress(){
             </section>
 
             <section className="compress__cta">
-                <CTA/>
+                <CTA api="https://tinypng.com/developers/reference"/>
             </section>
         </main>
     )

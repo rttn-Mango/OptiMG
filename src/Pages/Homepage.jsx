@@ -1,5 +1,4 @@
-//Component
-import CTA from '../Components/CTA'
+import { Link } from 'react-router-dom'
 
 //Image/illustrations
 import newspaper from '../Assets/newspaper.jpg'
@@ -7,17 +6,17 @@ import seamless from '../Assets/seamless.svg'
 import seamlessTablet from '../Assets/seamless-tablet.svg'
 import seamlessMobile from '../Assets/seamless-mobile.svg'
 
-
 //Icon
 import arrow from '../Assets/arrow.svg'
+import curved from '../Assets/curved arrow.svg'
 
 export default function Homepage(){
     return (
         <main className="homepage">
             <h1 aria-label='Optimize all your assets with minify.'>
-                Optimize <a href="" aria-hidden="true" title="Start Compressing">Start Compressing</a> all your assets <img aria-hidden='true' src={newspaper} alt="Newspaper Image" draggable="false" width={110} height={100}/> with minify.
+                Optimize <Link to='/compress' aria-hidden="true" title="Start Compressing">Start Compressing</Link> all your assets <img aria-hidden='true' src={newspaper} alt="Newspaper Image" draggable="false" width={110} height={100}/> with minify.
             </h1>
-            <p aria-label='Or convert them to a new one'>Or <a href="" aria-hidden="true" title='Convert' className='secondary'>Convert <img src={arrow} alt="Right Arrow" draggable="false" width={30} height={30}/></a> them to a new one.</p>
+            <p aria-label='Or convert them to a new one'>Or <Link to='/convert' aria-hidden="true" title='Convert' className='secondary'>Convert <img src={arrow} alt="Right Arrow" draggable="false" width={30} height={30}/></Link> them to a new one.</p>
 
             <section className="homepage__mid-content">
                 <img 
@@ -60,7 +59,10 @@ export default function Homepage(){
             </section>
 
             <section className="homepage__cta">
-                <CTA/>
+                <h2>Check out the <span>API</span>s used below</h2>
+                <img src={curved} alt="arrow pointing downwards" draggable="false" height={387} width={73}/>
+                <a href="https://tinypng.com/developers/reference">Tinify</a>
+                <a href='https://api.cloudmersive.com/docs/convert.asp'>Cloudmersive</a>
             </section>
         </main>
     )

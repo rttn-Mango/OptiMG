@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+
+//Icons
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
@@ -15,9 +18,8 @@ export default function Footer(){
                 <div className="footer__links">
                     <p>Links</p>
                     <ul role="list">
-                        <li><a href="">Homepage</a></li>
-                        <li><a href="">Compress</a></li>
-                        <li><a href="">Convert</a></li>
+                        <li><Link to='/compress' title='Start Compressing'>Compress</Link></li>
+                        <li><Link to='/convert' title='Convert your Assets'>Convert</Link></li>
                     </ul>
                 </div>
 
