@@ -19,15 +19,19 @@ export default function Homepage(){
             <p aria-label='Or convert them to a new one'>Or <Link to='/convert' aria-hidden="true" title='Convert' className='secondary'>Convert <img src={arrow} alt="Right Arrow" draggable="false" width={30} height={30}/></Link> them to a new one.</p>
 
             <section className="homepage__mid-content">
-                <img 
-                    src={seamless} 
-                    srcSet={`${seamlessMobile} 270w, ${seamlessTablet} 640w, ${seamless} 1200`}
-                    sizes='(max-width: 430px) 270px, (max-width: 850px) 640px, 1200px'
-                    alt="Seamless Experience Illustration" 
-                    draggable="false" 
-                    width={1200} 
-                    height={610}
-                />
+                <picture>
+                    <source media='(max-width: 430px)' srcSet={seamlessMobile} />
+                    <source media='(max-width: 840px)' srcSet={seamlessTablet} />
+                    <img 
+                        src={seamless} 
+                        alt="Seamless Experience Illustration" 
+                        draggable="false" 
+                        width={1200} 
+                        height={610}
+                    />
+                </picture>
+
+                
                 <h2>At minify, we understand the importance of a <span className='secondary'>simple</span> and <span className='secondary'>minimal</span> experience.</h2>
             </section>
 
