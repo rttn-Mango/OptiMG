@@ -36,39 +36,44 @@ export default function Homepage(){
 
             <section className="homepage__mission">
                 <h2>Our <span className='primary'>mission</span> you ask?</h2>
-                <p>It&apos;s simple, minify is on a mission to make a simple, easy to use, and seamless compression site which <span>Developers</span>, <span>Designers</span>, and average consumers can enjoy can enjoy.</p>
+                <p>It&apos;s simple, minify is on a mission to make a simple, easy to use, and seamless compression site which <span className='secondary'>Developers</span>, <span className='secondary'>Designers</span>, and average consumers can enjoy can enjoy.</p>
             </section>
 
             <div className="wrapper">
                 <section className="homepage__offer">
                     <h2>What do we <span className='primary'>offer</span>?</h2>
 
-                    <div className="homepage__offer--card">
-                        <h3 className='secondary'>Compression</h3>
-                        <p>Say goodbye to sluggish load times and hefty file sizes. </p>
-                        <p>Our compression service reduces the size of your digital assets without compromising on quality. </p>
-                        <p>Watch as we shrink that once 1MB file down to a nimble 50KB, ensuring your web pages load faster and your users stay engaged.</p>
-                    </div>
-                    <div className="homepage__offer--card">
-                        <h3 className='secondary'>Conversion</h3>
-                        <p>Keep up with the latest file formats effortlessly.</p>
-                        <p>conversion service allows you to transition from older file extensions, like JPG, to newer ones, such as WebP.</p>
-                        <p>Stay ahead of the curve, improve compatibility, and embrace the benefits of modern digital media with a simple click.</p>
+                    <div className='container'>
+                        <section className="homepage__offer--card">
+                            <h3 className='secondary'>Compression</h3>
+                            <p>Say goodbye to sluggish load times and hefty file sizes. </p>
+                            <p>Our compression service reduces the size of your digital assets without compromising on quality. </p>
+                            <p>Watch as we shrink your assets&apos; file size down, ensuring your web pages load faster and your users stay engaged.</p>
+                        </section>
+                        <section className="homepage__offer--card">
+                            <h3 className='secondary'>Conversion</h3>
+                            <p>Keep up with the latest file formats effortlessly.</p>
+                            <p>conversion service allows you to transition from older file extensions, like JPG, to newer ones, such as WebP.</p>
+                            <p>Stay ahead of the curve, improve compatibility, and embrace the benefits of modern digital media with a simple click.</p>
+                        </section>
                     </div>
                 </section>
             </div>
 
             <section className="homepage__closing">
                 <p>Try <span className="primary">minify</span> today</p>
-                <p>Try minify today and experience the magic of seamless compression and conversion. Empower your website, engage your audience, and embrace the future of digital optimization with minify.</p>
+                <p>Try minify today and experience the magic of seamless compression and conversion. </p>
+                <p>Empower your website, engage your audience, and embrace the future of digital optimization with minify.</p>
             </section>
 
             <div className="wrapper">
                 <section className="homepage__cta">
-                    <h2>Check out the <span>API</span>s used below</h2>
+                    <h2>Check out the <span className='secondary'>APIs</span> used below</h2>
                     <img src={curved} alt="arrow pointing downwards" draggable="false" height={387} width={73}/>
-                    <a href="https://tinypng.com/developers/reference">Tinify</a>
-                    <a href='https://api.cloudmersive.com/docs/convert.asp'>Cloudmersive</a>
+                    <div className="homepage__cta--apis">
+                        <Link to="https://tinypng.com/developers/reference" title='Tinify API'>Tinify</Link>
+                        <Link to='https://api.cloudmersive.com/docs/convert.asp' title='Cloudmersive API'>Cloudmersive</Link>
+                    </div>
                 </section>
             </div>
         </main>

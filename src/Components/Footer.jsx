@@ -12,11 +12,11 @@ export default function Footer(){
             <nav>
                 <div className="footer__logo">
                     <a href="" title="Back to homepage"><img src={logo} alt="Site Logo" /></a>
-                    <p><span>rttn.Mango</span> © 2023</p>
+                    <p><span className='accent'>rttn.Mango</span> © 2023</p>
                 </div>
 
                 <div className="footer__links">
-                    <p>Links</p>
+                    <p className='footer__label'>Links</p>
                     <ul role="list">
                         <li><Link to='/compress' title='Start Compressing'>Compress</Link></li>
                         <li><Link to='/convert' title='Convert your Assets'>Convert</Link></li>
@@ -24,10 +24,12 @@ export default function Footer(){
                 </div>
 
                 <div className="footer__socials">
-                    <p>Socials</p>
-                    <a href="" title="Facebook"><FaFacebookSquare/></a>
-                    <a href="" title="Github"><FaGithubSquare/></a>
-                    <a href="" title="Linkedin"><FaLinkedin/></a>
+                    <p className='footer__label'>Socials</p>
+                    <div className="footer__socials--links">
+                        <a href="" title="Facebook"><FaFacebookSquare/></a>
+                        <a href="" title="Github"><FaGithubSquare/></a>
+                        <a href="" title="Linkedin"><FaLinkedin/></a>
+                    </div>
                 </div>
             </nav>
         </footer>

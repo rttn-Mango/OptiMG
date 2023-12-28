@@ -16,13 +16,13 @@
 
 @mixin h2(){
     font-family: 'Medium';
-    font-size: clamp(2.5rem, 10vw, var(--font-size-h2));
+    font-size: clamp(2rem, 8vw, var(--font-size-h2));
     line-height: 1.2;
 }
 
 @mixin h3(){
     font-family: 'Regular';
-    font-size: clamp(2rem, 10vw, var(--font-size-h3));
+    font-size: clamp(var(--font-size-body1), 5vw, var(--font-size-h3));
     line-height: 1.2;
 }
 
@@ -46,16 +46,114 @@ body{
     font-family: 'Regular';
 }
 
-//Header
-.header nav{
-    @include spacing();
-    @include flex(row, 1rem);
-    justify-content: space-between;
-    padding-block: 3rem;
+//For changing font colors of certain span texts
+.primary{color: var(--clr-primary)}
+.secondary{color: var(--clr-secondary)}
+.accent{color: var(--clr-accent)}
 
-    & ul{@include flex(row, 2rem)}
+//For styling the nav links on header
+.page{
+    color: var(--clr-text);
+    position: relative;
+    padding-bottom: .5rem;
+
+    &::before{
+        position: absolute;
+        content: '';
+        width: 0%;
+        height: 2px;
+        background-color: var(--clr-secondary);
+        bottom: 0;
+        transition: width 300ms ease-in-out;
+    }
+
+    &.active{
+        font-family: 'BoldItalic';
+        color: var(--clr-text);
+        
+    
+        &::before{width: 50%;}
+    }
+
+    &.inactive{
+
+        &::before{background-color: var(--clr-neutral-300)}
+        &:hover, &:focus{
+            font-family: 'Italic';
+            &::before{width: 50%}
+        }
+    }
 }
 
+//Header
+.header{
+    padding-block: 2rem;
+
+    & nav{
+        @include spacing();
+        @include flex(row, 1rem);
+        justify-content: space-between;
+        padding-block: 3rem;
+    
+        & ul{@include flex(row, 2rem)}
+        & button{display: none;}
+    
+        @media screen and (max-width: 600px) {
+            & ul{display: none;}
+            & button{
+                display: block;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+//Footer
+.footer{
+    padding-block: 7rem;
+
+    & nav{
+        @include spacing();
+        @include flex(column, 3rem);
+        
+    }
+
+    @media screen and (max-width: 800px){& nav{max-width: fit-content;}}
+
+    &__label{
+        font-size: var(--font-size-body1);
+        color: var(--clr-primary);
+    }
+
+    & ul li a{
+        &:hover, &:focus{
+            color: var(--clr-secondary);
+            font-family: 'Italic'
+        }
+    }
+
+    &__socials{
+        &--links{
+            @include flex(row, 1rem);
+            padding-top: 1.5rem;
+        }
+
+        & a{
+            font-size: 2rem;
+            color: var(--clr-neutral-100);
+            position: relative;
+            top: 0;
+            transition: top 100ms ease-in-out;
+
+            &:hover, &:focus{
+                color: var(--clr-secondary);
+                top: -3px;
+            }
+        }
+    }
+}
 
 //Homepage
 .homepage{
@@ -80,7 +178,7 @@ body{
                 content: '';
                 width: 100%;
                 height: 2px;
-                background-color: var(--clr-neutral-500);
+                background-color: var(--clr-neutral-300);
                 width: 0;
                 bottom: 0;
                 transition: width 500ms ease-in-out;
@@ -103,7 +201,7 @@ body{
         //Start Compressing button
         & a{
             position: relative;
-            font-size: clamp(var(--font-size-body), 5vw, var(--font-size-body1));
+            font-size: clamp(var(--font-size-body), 3vw, var(--font-size-body1));
             background-color: var(--clr-primary);
             color: var(--clr-neutral-900);
             text-decoration: none;
@@ -114,6 +212,7 @@ body{
             white-space: nowrap;
             border: 2px solid var(--clr-primary);
             margin-top: 1rem;
+            transition: top 200ms ease-in-out;
 
             &:hover{
                 background-color: transparent;
@@ -176,12 +275,107 @@ body{
 
     }
 
+    h2{@include h2()}
+
+    &__mid-content {
+        padding-block: calc(10vw + 10em) calc(25vw + 25em);
+        @include flex(column, 0);
+        align-items: center;
+
+        h2{max-width: 25ch; text-align: center; padding-top: 2rem;}
+        & img{height:auto}
+    }
+
+    &__mission{
+        //Custom Property
+        $--_fs-paragraph: 1.10rem;
+
+        padding-bottom: calc(15vw + 15em);
+        & h2{padding-bottom: .5em;}
+        & p{
+            line-height: 1.8; 
+            font-size: $--_fs-paragraph;
+            max-width: 80ch;
+        }
+
+        
+
+        @media screen and (max-width: 400px) { & p{max-width: 23ch;} }
+    }
+
     &__offer{
-        @include spacing()
+        @include spacing();
+        padding-block: calc(15vw + 5em);
+
+        & h2{margin-top: 0}
+        & h3{@include h3(); padding-top: .75em;}
+        & p{font-family: 'Thin';}
+    }
+
+    &__closing{
+
+        padding-block: calc(15vw + 15em);
+        & p:first-child{ @include h2() }
+        & p{font-family: 'Thin';}
     }
 
     &__cta{
-        @include spacing()
+        @include spacing();
+        padding-block: calc(10vw + 10em);
+        text-align: center;
+        @include flex(column, calc(8vw + 2em));
+        align-items: center;
+
+        & h2{@include display()}
+
+        & a{
+            @include h3();
+            text-decoration:none;
+            @include flex(column, 1rem);
+            margin-bottom: .75em;
+            padding-bottom: 5px;
+            position: relative;
+            width: max-content;
+            margin-inline: auto;
+
+            &::before{
+                position: absolute;
+                content: '';
+                width: 0%;
+                height: 2px;
+                background-color: var(--clr-neutral-300);
+                bottom: 0;
+                transition: width 400ms ease-in-out;
+            }
+
+            &:hover, &:focus{
+                font-family: 'Italic';
+                color: var(--clr-secondary);
+                &::before{ width: 50% }
+            }
+        }
     }
+
     .wrapper{background-color: var(--clr-neutral-700)}
+}
+
+@media screen and (min-width: 50em){
+    .footer{
+        & nav{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__label{margin-top: 0;}
+    }
+
+    .homepage{
+        h1, &__sub{text-align: center;}
+
+        &__offer--card{max-width: 70ch}
+        & .container{
+            @include flex(row, 1rem);
+            justify-content: space-between;
+        }
+    }
 }

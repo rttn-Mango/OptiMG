@@ -29,6 +29,12 @@
 }
 
 @font-face {
+    font-family: 'Light';
+    src: url('public/Fonts/Supreme-Light.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Thin';
     src: url('public/Fonts/Supreme-Thin.woff2') format('woff2');
     font-display: swap;
