@@ -4,11 +4,30 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="public/Favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>minify.</title>
+
+    <meta name="author" content="rttn.mango">
+    <meta name="title" content="minify">
+    <meta name="description" content="Optimize your Images with minify.">
+    <meta name="language" content="English">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="minify">
+    <meta property="og:image" content="https://minify.vercel.app/assets/seamless-mobile.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Optimize your Images with minify.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="https://minify.vercel.app">
+
+    <!-- Preloads -->
+    <link rel='preload' as="image" href="/src/Assets/banana.jpg">
+    <link rel='preload' as="image" href="/src/Assets/newspaper.jpg">
+    <link rel='preload' as="image" href="/src/Assets/mess.jpg">
+
+    <title>minify</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" defer src="/src/main.jsx"></script>
     <script src="server.js" defer></script>
   </body>
 </html>

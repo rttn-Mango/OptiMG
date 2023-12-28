@@ -218,7 +218,6 @@ body{
                 background-color: transparent;
                 color: var(--clr-text);
                 top: -2.10vw;
-                transition: top 200ms ease-in-out;
             }
 
             &:focus{
@@ -359,6 +358,7 @@ body{
     .wrapper{background-color: var(--clr-neutral-700)}
 }
 
+//Large Screen size queries
 @media screen and (min-width: 50em){
     .footer{
         & nav{
