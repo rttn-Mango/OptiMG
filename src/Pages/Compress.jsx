@@ -19,7 +19,7 @@ export default function Compress(){
 
     //Renders all the compressed image
     const renderCompressedImages = () => {
-        if(compressedFile.length === 0) return <p>Upload your image/s</p>
+        if(compressedFile.length === 0) return <p className="note">You haven&apos;t uploaded anything yet!</p>
 
         return compressedFile.map(file => {
             return(
@@ -104,7 +104,7 @@ export default function Compress(){
                 <DragAndDrop setUploadedFile={setUploadedFile}/>
 
                 <section className="compress__hero--files"> {renderCompressedImages()} </section>
-                <button type='button' onClick={downloadAllImages}>Download All</button>
+                <button type='button' disabled={compressedFile.length <= 0 ? 'true' : 'false'} onClick={downloadAllImages}>Download All</button>
             </section>
 
             <section className="compress__instruction">
