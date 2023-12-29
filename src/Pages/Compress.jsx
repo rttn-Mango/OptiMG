@@ -104,42 +104,44 @@ export default function Compress(){
                 <DragAndDrop setUploadedFile={setUploadedFile}/>
 
                 <section className="compress__hero--files"> {renderCompressedImages()} </section>
-                <button type='button' disabled={compressedFile.length <= 0 ? 'true' : 'false'} onClick={downloadAllImages}>Download All</button>
+                <button type='button' disabled={compressedFile.length <= 0 ? true : false} onClick={downloadAllImages}>Download All</button>
             </section>
 
             <section className="compress__instruction">
                 <h1> <span className="primary">How</span> to Use</h1>
                 <section className="compress__instruction--card">
-                    <>
+                    <div className="container">
                         <h2><span className="secondary">Choose</span> your Assets</h2>
                         <ul role="list">
                             <li>Click the dashed blue box to open your folder.</li>
                             <li>Select the File/s you want to optimize.</li>
                             <li>You may also Drag your files directly to the box.</li>
                         </ul>
-                    </>
+                    </div>
                     <img src={select} draggable="false" width={510} height={350} alt="Choose Your Assets Illustration" />
                 </section>
 
-                <section className="compress__instruction--card">
-                    <>
-                        <h2><span className="secondary">Chill</span> out for a bit</h2>
-                        <ul role="list">
-                            <li>Wait for the loading to finish.</li>
-                            <li>Grab yourself a coffee and chill out for a bit.</li>
-                        </ul>
-                    </>
-                    <img src={chill} draggable="false" width={430} height={550} alt="Chill out Illustration" />
-                </section>
+                <div className="wrapper">
+                    <section className="compress__instruction--card">
+                        <img src={chill} draggable="false" width={430} height={550} alt="Chill out Illustration" />
+                        <div className="container">
+                            <h2><span className="secondary">Chill</span> out for a bit</h2>
+                            <ul role="list">
+                                <li>Wait for the loading to finish.</li>
+                                <li>Grab yourself a coffee and chill out for a bit.</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
 
                 <section className="compress__instruction--card">
-                    <>
+                    <div className="container">
                         <h2><span className="secondary">Download</span> your files</h2>
                         <ul role="list">
                             <li>Once compression is done, click the Download button.</li>
                             <li>You may also Click the Download All button if there are more files.</li>
                         </ul>
-                    </>
+                    </div>
                     <img src={download} draggable="false" width={510} height={380} alt="Download Illustration" />
                 </section>
             </section>

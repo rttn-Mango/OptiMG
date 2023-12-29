@@ -496,14 +496,27 @@ body {
   background-color: var(--clr-neutral-700);
 }
 
-.compress {
-  max-width: clamp(80%, 85vw, 90rem);
-  margin-inline: auto;
+.compress .wrapper {
+  background-color: var(--clr-neutral-700);
+  padding-block: calc(3vw + 2em);
+}
+.compress h1 {
+  font-family: "Bold";
+  font-size: clamp(2.5rem, 10vw, var(--font-size-h1));
+  line-height: 1.2;
+}
+.compress h2 {
+  font-family: "Medium";
+  font-size: clamp(2rem, 8vw, var(--font-size-h2));
+  line-height: 1.2;
 }
 .compress__hero {
   display: flex;
   flex-direction: column;
   gap: calc(3vw + 2rem);
+  max-width: clamp(80%, 85vw, 90rem);
+  margin-inline: auto;
+  padding-block: calc(3vw + 2rem);
 }
 .compress__hero p {
   margin: 0;
@@ -517,8 +530,10 @@ body {
 .compress__hero--files .note {
   font-family: "Italic";
   position: absolute;
-  top: 50%;
-  left: 25%;
+  height: fit-content;
+  width: fit-content;
+  inset: 0;
+  margin: auto;
   font-size: var(--font-size-caption);
 }
 .compress__hero .files__card {
@@ -569,6 +584,93 @@ body {
 .compress__hero button:focus {
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
 }
+.compress__instruction {
+  padding-block: calc(10vw + 10rem);
+}
+.compress__instruction section, .compress__instruction h1 {
+  max-width: clamp(80%, 85vw, 90rem);
+  margin-inline: auto;
+}
+.compress__instruction--card {
+  margin-block: calc(5vw + 5em);
+}
+.compress__instruction--card img {
+  margin-inline: 0;
+  height: auto;
+}
+@media screen and (max-width: 800px) {
+  .compress__instruction--card img {
+    width: auto;
+  }
+}
+.compress__instruction--card:not(:nth-child(1)) img {
+  padding-top: 5rem;
+}
+.compress__instruction ul {
+  list-style: inside;
+  line-height: 1.8;
+}
+.compress__instruction > *:not(h1) {
+  padding-block: 3em;
+}
+.compress__instruction > * {
+  padding-bottom: 3em;
+}
+.compress__closing {
+  padding-block: calc(2vw + 3em) calc(15vw + 15em);
+  max-width: clamp(80%, 85vw, 90rem);
+  margin-inline: auto;
+}
+.compress__closing p:first-child {
+  font-family: "Bold";
+  font-size: clamp(2.5rem, 10vw, var(--font-size-h1));
+  line-height: 1.2;
+}
+.compress__closing p:last-child {
+  line-height: 1.8;
+  font-family: "Thin";
+}
+.compress__cta {
+  background-color: hsla(35, 76%, 75%, 0.4);
+  font-family: "Bold";
+  padding: calc(5em + 5vw);
+  text-align: center;
+}
+.compress__cta :not(a) {
+  font-family: "Medium";
+  font-size: clamp(2rem, 8vw, var(--font-size-h2));
+  line-height: 1.2;
+  line-height: 1.8;
+}
+.compress__cta * {
+  margin-top: 0;
+}
+.compress__cta a {
+  text-decoration: none;
+  background-color: var(--clr-accent);
+  font-size: clamp(1rem, 1.5vw, var(--font-size-button));
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  margin-top: 3em;
+  color: var(--clr-bg);
+  position: relative;
+}
+.compress__cta a img {
+  position: relative;
+  right: 0;
+  transition: right 200ms ease-in-out;
+}
+.compress__cta a:hover {
+  font-style: italic;
+}
+.compress__cta a:hover img {
+  right: -3px;
+}
+.compress__cta a:focus {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+}
 
 @media screen and (min-width: 50em) {
   .footer nav {
@@ -589,6 +691,34 @@ body {
     flex-direction: row;
     gap: 1rem;
     justify-content: space-between;
+  }
+  .compress > *:not(:has(.wrapper)) {
+    max-width: clamp(70%, 80vw, 90rem);
+    margin-inline: auto;
+  }
+  .compress > *:is(.compress__cta) {
+    max-width: 100%;
+  }
+  .compress__hero button {
+    align-self: flex-end;
+    padding-inline: 5em;
+  }
+  .compress__instruction--card {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .compress__instruction--card img {
+    max-width: 40dvw;
+  }
+  .compress__cta {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
