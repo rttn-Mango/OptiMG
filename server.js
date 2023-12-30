@@ -29,7 +29,7 @@ app.post('/compressed', async (req, res) => {
 
         //Convert the Buffer response to base64
         const compressedImage = {base64: result.toString('base64')}
-        res.status(201).end(JSON.stringify(compressedImage));
+        res.status(200).end(JSON.stringify(compressedImage));
 
     }catch (e) {console.error(e);}
 })
@@ -62,7 +62,7 @@ app.post('/convert', async (req, res) => {
             format: req.body.formatToConvert
         }
         
-        res.status(201).end(JSON.stringify(convertedImage))
+        res.status(200).end(JSON.stringify(convertedImage))
     }catch(e){console.error(e)}
 })
 
