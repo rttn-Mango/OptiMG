@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 //Image/illustrations
@@ -9,7 +10,10 @@ import seamlessMobile from '../Assets/seamless-mobile.svg'
 import arrow from '../Assets/arrow.svg'
 import curved from '../Assets/curved arrow.svg'
 
+
 export default function Homepage(){
+    useEffect(()=> {document.title = 'Home'}, [])
+
     return (
         <main className="homepage">
             <h1 aria-label='Optimize all your assets with minify.'>

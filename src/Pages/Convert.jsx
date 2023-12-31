@@ -45,6 +45,9 @@ export default function Convert(){
         images.forEach(image => image.click())
     }
 
+    //Changes the Document Title once Page mounts
+    useEffect(()=> {document.title = 'Convert'}, [])
+
     useEffect(() => {
         const dndCaption = document.querySelector('.caption');
 

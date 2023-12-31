@@ -42,6 +42,9 @@ export default function Compress(){
         images.forEach(image => image.click())
     }
 
+    //Changes the Document Title once Page mounts
+    useEffect(()=> {document.title = 'Compress'}, [])
+
     useEffect(() => {
 
         const compressImage = async () => {
