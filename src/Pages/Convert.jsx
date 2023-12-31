@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
+import HashLoader from 'react-spinners/HashLoader';
 
 //Components
 import DragAndDrop from "../Components/DragAndDrop";
@@ -22,6 +23,7 @@ export default function Convert(){
     const [convertedFile, setConvertedFile] = useState([])
     const [formatToConvert, setFormatToConvert] = useState('')
     const [isDisabled, setIsDisabled] = useState(false);
+    let isLoading = useRef(null);
 
     //Renders all the converted image/s
     const renderconvertedImages = () => {
@@ -78,6 +80,7 @@ export default function Convert(){
 
                                         //Resolve the promise
                                         resolve(convertedData)
+                                        isLoading.current = false
 
                                         //Remove the converted files from the filesToConvert array
                                         fileToConvert.pop(file)
@@ -117,8 +120,18 @@ export default function Convert(){
 
             <section className="convert__hero">
                     <p aria-hidden='true' className='caption'><img src={error} alt="Warning!" width={13} height={13}/> Please Choose a Format Below First!</p>
-                    <DragAndDrop setUploadedFile={setFileToConvert}/>
-                <section className="convert__hero--files">{renderconvertedImages()}</section>
+                    <DragAndDrop setUploadedFile={setFileToConvert} isLoading={isLoading}/>
+                <section className="convert__hero--files">
+                    {
+
+                        isLoading.current && fileToConvert !== null && formatToConvert !== ''
+                        ? 
+                        <div className="promise-loading" aria-hidden='true'>
+                            <p>Please Wait <span className="dot-anim">.</span> <span className="dot-anim">.</span> <span className="dot-anim">.</span></p>
+                            <HashLoader color="#8aafbc"/>
+                        </div> : renderconvertedImages()
+                    }
+                </section>
 
                 <section className="convert__hero--buttons">
                     <section className="buttons__select">

@@ -85,6 +85,14 @@ body{
     }
 }
 
+//Loading animation fallback for Suspense
+.loading-fallback{
+    height: 100vh;
+    @include flex(row, 0);
+    align-items: center;
+    justify-content: center;
+}
+
 //Header
 .header{
     padding-block: 2rem;
@@ -392,6 +400,16 @@ body{
     h1{@include h1()}
     h2{@include h2()}
 
+    //Animation for the three dots on the 'Please Wait...' above the spinner on promise-loading class
+    @for $i from 0 through 3{
+        .dot-anim:nth-child(#{$i}){
+            display: inline-block;
+            position: relative;
+            animation: dot-anim 500ms linear infinite;
+            animation-delay: calc(150ms * #{$i}) ; 
+        }
+    }
+
     &__hero{
         @include flex(column, calc(3vw + 2rem));
         @include spacing(80%, 85vw, 90rem);
@@ -403,6 +421,17 @@ body{
             overflow-y: scroll;
             height: clamp(25rem, 30vw, 40rem);
             position: relative;
+
+            & .promise-loading{
+                font-family: 'Italic';
+                font-size: var(--font-size-caption);
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                @include flex(column, 0.5rem);
+                align-items: center;
+                justify-content: center;
+            }
 
             & .note{
                 font-family: 'Italic';
@@ -541,6 +570,7 @@ body{
         padding-block: calc(3vw + 2em)
     }
 
+    //Error message which appears when user tries to convert without choosing a format first
     .caption{
         position: absolute;
         top: 3vw;
@@ -557,8 +587,17 @@ body{
         & img{display: inline-block;}
         &.show{opacity: 1; visibility: visible}
     }
-    
 
+    //Animation for the three dots on the 'Please Wait...' above the spinner on promise-loading class
+    @for $i from 0 through 3{
+        .dot-anim:nth-child(#{$i}){
+            display: inline-block;
+            position: relative;
+            animation: dot-anim 500ms linear infinite;
+            animation-delay: calc(150ms * #{$i}) ; 
+        }
+    }
+    
     h1{@include h1()}
     h2{@include h2()}
 
@@ -584,6 +623,17 @@ body{
             overflow-y: scroll;
             height: clamp(25rem, 30vw, 40rem);
             position: relative;
+
+            & .promise-loading{
+                font-family: 'Italic';
+                font-size: var(--font-size-caption);
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                @include flex(column, 0.5rem);
+                align-items: center;
+                justify-content: center;
+            }
 
             & .note{
                 font-family: 'Italic';
@@ -811,3 +861,5 @@ body{
         }
     }
 }
+
+@keyframes dot-anim{to{top: -3px;}}

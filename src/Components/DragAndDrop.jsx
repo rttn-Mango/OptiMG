@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 //Icon
 import upload from '/dlw.svg'
 
-export default function DragAndDrop({setUploadedFile}){
+export default function DragAndDrop({setUploadedFile, isLoading}){
     const handleDragOver = e => e.preventDefault();
     const handleDrop = e => {
         e.preventDefault();
+        isLoading.current = true;
         
         let uploadedFiles;
         if(e.dataTransfer !== undefined) uploadedFiles = e.dataTransfer.files
@@ -37,5 +38,6 @@ export default function DragAndDrop({setUploadedFile}){
 }
 
 DragAndDrop.propTypes = {
-    setUploadedFile: PropTypes.func
+    setUploadedFile: PropTypes.func,
+    isLoading: PropTypes.object,
 }

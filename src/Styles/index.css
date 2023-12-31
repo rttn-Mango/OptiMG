@@ -185,6 +185,15 @@ body {
   width: 50%;
 }
 
+.loading-fallback {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+}
+
 .header {
   padding-block: 2rem;
 }
@@ -510,6 +519,30 @@ body {
   font-size: clamp(2rem, 8vw, var(--font-size-h2));
   line-height: 1.2;
 }
+.compress .dot-anim:nth-child(0) {
+  display: inline-block;
+  position: relative;
+  animation: dot-anim 500ms linear infinite;
+  animation-delay: calc(150ms * 0);
+}
+.compress .dot-anim:nth-child(1) {
+  display: inline-block;
+  position: relative;
+  animation: dot-anim 500ms linear infinite;
+  animation-delay: calc(150ms * 1);
+}
+.compress .dot-anim:nth-child(2) {
+  display: inline-block;
+  position: relative;
+  animation: dot-anim 500ms linear infinite;
+  animation-delay: calc(150ms * 2);
+}
+.compress .dot-anim:nth-child(3) {
+  display: inline-block;
+  position: relative;
+  animation: dot-anim 500ms linear infinite;
+  animation-delay: calc(150ms * 3);
+}
 .compress__hero {
   display: flex;
   flex-direction: column;
@@ -526,6 +559,18 @@ body {
   overflow-y: scroll;
   height: clamp(25rem, 30vw, 40rem);
   position: relative;
+}
+.compress__hero--files .promise-loading {
+  font-family: "Italic";
+  font-size: var(--font-size-caption);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
 }
 .compress__hero--files .note {
   font-family: "Italic";
@@ -699,6 +744,30 @@ body {
   opacity: 1;
   visibility: visible;
 }
+.convert .dot-anim:nth-child(0) {
+  display: inline-block;
+  position: relative;
+  animation: dot-anim 500ms linear infinite;
+  animation-delay: calc(150ms * 0);
+}
+.convert .dot-anim:nth-child(1) {
+  display: inline-block;
+  position: relative;
+  animation: dot-anim 500ms linear infinite;
+  animation-delay: calc(150ms * 1);
+}
+.convert .dot-anim:nth-child(2) {
+  display: inline-block;
+  position: relative;
+  animation: dot-anim 500ms linear infinite;
+  animation-delay: calc(150ms * 2);
+}
+.convert .dot-anim:nth-child(3) {
+  display: inline-block;
+  position: relative;
+  animation: dot-anim 500ms linear infinite;
+  animation-delay: calc(150ms * 3);
+}
 .convert h1 {
   font-family: "Bold";
   font-size: clamp(2.5rem, 10vw, var(--font-size-h1));
@@ -737,6 +806,18 @@ body {
   overflow-y: scroll;
   height: clamp(25rem, 30vw, 40rem);
   position: relative;
+}
+.convert__hero--files .promise-loading {
+  font-family: "Italic";
+  font-size: var(--font-size-caption);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
 }
 .convert__hero--files .note {
   font-family: "Italic";
@@ -988,6 +1069,11 @@ body {
   }
   .convert__cta a {
     margin-top: 0;
+  }
+}
+@keyframes dot-anim {
+  to {
+    top: -3px;
   }
 }
 

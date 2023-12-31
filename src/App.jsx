@@ -2,12 +2,14 @@ import { Routes, Route } from "react-router-dom"
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
 //Pages/Components
-import Compress from "./Pages/Compress"
-import Convert from "./Pages/Convert"
-import Homepage from "./Pages/Homepage"
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
+
+//Lazy loaded Pages
+const Homepage = lazy(() => import("./Pages/Homepage"))
+const Compress = lazy(() => import("./Pages/Compress"))
+const Convert = lazy(() => import("./Pages/Convert"))
 
 function App() {
 

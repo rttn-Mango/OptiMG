@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
+import HashLoader from 'react-spinners/HashLoader';
 
 //Components
 import CTA from "../Components/CTA";
@@ -15,7 +16,8 @@ import dl from '/dl.svg'
 
 export default function Compress(){
     const [uploadedFile, setUploadedFile] = useState(null)
-    const [compressedFile, setCompressedFile] = useState([])
+    const [compressedFile, setCompressedFile] = useState([]);
+    let isLoading = useRef(null);
 
     //Renders all the compressed image
     const renderCompressedImages = () => {
@@ -41,9 +43,10 @@ export default function Compress(){
     }
 
     useEffect(() => {
+
         const compressImage = async () => {
             if (uploadedFile){
-
+                isLoading.current = true;
                 try {
                     const compressedImagesArray = await Promise.all(
                     
@@ -73,6 +76,7 @@ export default function Compress(){
                                             size: Math.round(newFileSize/1024),
                                         }
                                         resolve(compressedData)
+                                        isLoading.current = false;
                                         
                                     }catch (e) {reject(e)}
                                 }
@@ -101,10 +105,18 @@ export default function Compress(){
     return(
         <main className="compress">
             <section className="compress__hero">
-                <DragAndDrop setUploadedFile={setUploadedFile}/>
+                <DragAndDrop setUploadedFile={setUploadedFile} isLoading={isLoading}/>
 
-                <section className="compress__hero--files"> {renderCompressedImages()} </section>
-                <button type='button' disabled={compressedFile.length <= 0 ? true : false} onClick={downloadAllImages}>Download All</button>
+                <section className="compress__hero--files"> {
+                
+                    isLoading.current 
+                    ? 
+                    <div className="promise-loading" aria-hidden='true'>
+                        <p>Please Wait <span className="dot-anim">.</span> <span className="dot-anim">.</span> <span className="dot-anim">.</span></p>
+                        <HashLoader color="#8aafbc"/>
+                    </div> : renderCompressedImages()
+                } </section>
+                <button type='button' disabled={compressedFile.length <= 0 || isLoading.current ? true : false} onClick={downloadAllImages}>Download All</button>
             </section>
 
             <section className="compress__instruction">
