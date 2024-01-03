@@ -1,11 +1,12 @@
 import { useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 //Icons
 import logo from '../Assets/logo.svg'
 import burger from '/public/burger.svg'
 
-export default function Header(){
+export default function Header({setIsOpened}){
     const path = useLocation();
 
     return(
@@ -17,8 +18,12 @@ export default function Header(){
                     <li><Link to='/compress' title='Start Compressing' className={path.pathname === '/compress' ? 'page | active' : 'page | inactive'}>Compress</Link></li>
                     <li><Link to='/convert' title='Convert your Assets' className={path.pathname === '/convert' ? 'page | active' : 'page | inactive'}>Convert</Link></li>
                 </ul>
-                <button type="button"><img src={burger} alt="Open Nav" draggable="false" height={50} width={50}/></button>
+                <button type="button" onClick={() => setIsOpened(true)}><img src={burger} alt="Open Nav" draggable="false" height={40} width={40}/></button>
             </nav>
         </header>
     )
+}
+
+Header.propTypes = {
+    setIsOpened: PropTypes.func
 }

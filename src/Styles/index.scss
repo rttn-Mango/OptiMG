@@ -800,6 +800,82 @@ body{
     }
 }
 
+//Disables action on the body when floating menu is visible
+.disabled{
+    pointer-events: none;
+    touch-action: none;
+
+    #root > *:not(.floating-menu){
+        filter: blur(3px);
+    }
+}
+
+//Floating Hamburger Icon when Header is not in screen
+.floating-burger{
+    position: fixed;
+    top: 3.5rem;
+    right: 3svw;
+    z-index: 9999;
+
+    button{
+        background-color: transparent;
+        border: 1px solid var(--clr-neutral-500);
+        background-color: black;
+        padding: 1.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: rotate 300ms ease-in-out;
+
+        &:hover{rotate: 180deg}
+    }
+}
+
+//Opened Hamburger menu
+.floating-menu{
+    clip-path: circle(0 at 99% 1%);
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: calc(20dvw + 10rem);
+    background-color: var(--clr-neutral-900);
+    z-index: 9999;
+    pointer-events: all;
+    touch-action: auto;
+    transition: all 700ms ease-in-out;
+
+    &.show{clip-path: circle(200svh at 100% 0)}
+
+    & nav{
+        @include flex(column, 5rem);
+        align-items: center;
+        padding-top: 6rem;
+    }
+
+    li:not(:nth-of-type(1)){padding-top: 2rem;}
+
+    a{
+        font-size: clamp(2rem, 6svw, var(--font-size-h2));
+        font-family: 'Light';
+
+        & span{
+            -webkit-text-stroke: 1px var(--clr-text);
+            color: transparent;
+        }
+    }
+
+    button{
+        background-color: transparent;
+        border: 0;
+        align-self: flex-end;
+        margin-right: calc(3svw + 2rem);
+        cursor: pointer;
+        transition: rotate 300ms ease-in-out;
+
+        &:hover{
+            rotate: 180deg;
+        }
+    }
+}
+
 //Large Screen size queries
 @media screen and (min-width: 50em){
     .footer{

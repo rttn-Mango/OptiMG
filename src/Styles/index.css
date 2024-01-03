@@ -1004,6 +1004,77 @@ body {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
 }
 
+.disabled {
+  pointer-events: none;
+  touch-action: none;
+}
+.disabled #root > *:not(.floating-menu) {
+  filter: blur(3px);
+}
+
+.floating-burger {
+  position: fixed;
+  top: 3.5rem;
+  right: 3svw;
+  z-index: 9999;
+}
+.floating-burger button {
+  background-color: transparent;
+  border: 1px solid var(--clr-neutral-500);
+  background-color: black;
+  padding: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: rotate 300ms ease-in-out;
+}
+.floating-burger button:hover {
+  rotate: 180deg;
+}
+
+.floating-menu {
+  clip-path: circle(0 at 99% 1%);
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: calc(20dvw + 10rem);
+  background-color: var(--clr-neutral-900);
+  z-index: 9999;
+  pointer-events: all;
+  touch-action: auto;
+  transition: all 700ms ease-in-out;
+}
+.floating-menu.show {
+  clip-path: circle(200svh at 100% 0);
+}
+.floating-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: center;
+  padding-top: 6rem;
+}
+.floating-menu li:not(:nth-of-type(1)) {
+  padding-top: 2rem;
+}
+.floating-menu a {
+  font-size: clamp(2rem, 6svw, var(--font-size-h2));
+  font-family: "Light";
+}
+.floating-menu a span {
+  -webkit-text-stroke: 1px var(--clr-text);
+  color: transparent;
+}
+.floating-menu button {
+  background-color: transparent;
+  border: 0;
+  align-self: flex-end;
+  margin-right: calc(3svw + 2rem);
+  cursor: pointer;
+  transition: rotate 300ms ease-in-out;
+}
+.floating-menu button:hover {
+  rotate: 180deg;
+}
+
 @media screen and (min-width: 50em) {
   .footer nav {
     flex-direction: row;
