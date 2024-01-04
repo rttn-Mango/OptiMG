@@ -17,7 +17,7 @@ export default function Homepage(){
     return (
         <main className="homepage">
             <h1 aria-label='Optimize all your assets with minify.'>
-                Optimize <Link to='/compress' aria-label='by Compressing' title="Start Compressing">Start Compressing</Link> all your assets <div className='img' title='Your Assets'/> with minify.
+                Optimize <Link to='/compress' title="Start Compressing">By Compressing</Link> all your assets <div className='img' title='Your Assets'/> with minify.
             </h1>
             <p aria-label='Or convert them to a new one' className='homepage__sub'>Or <Link to='/convert' title='Convert' className='secondary'>Convert <img src={arrow} alt="Right Arrow" draggable="false" width={30} height={30}/></Link> them to a new one.</p>
 

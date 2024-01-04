@@ -32,7 +32,7 @@ app.post('/compressed', async (req, res) => {
         res.status(200).end(JSON.stringify(compressedImage));
 
     }catch (e) {
-        res.end(e);
+        return res.send(e);
     }
 })
 
@@ -66,7 +66,7 @@ app.post('/convert', async (req, res) => {
         
         res.status(200).end(JSON.stringify(convertedImage))
     }catch(e){
-        res.end(e)
+        return res.send(e)
     }
 })
 
