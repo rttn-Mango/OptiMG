@@ -17,7 +17,7 @@ import chill from '../Assets/chill.svg'
 import download from '../Assets/download.svg'
 
 export default function Convert(){
-    const [fileToConvert, setFileToConvert] = useState(null)
+    const [fileToConvert, setFileToConvert] = useState([])
     const [convertedFile, setConvertedFile] = useState([])
     const [formatToConvert, setFormatToConvert] = useState('')
     const [isDisabled, setIsDisabled] = useState(false);
@@ -53,7 +53,7 @@ export default function Convert(){
 
         //Fetch request
         const convertImage = async () => {
-            if(fileToConvert){
+            if(fileToConvert.length > 0){
                 try{
                     //Disables the select option when files are being converted
                     setIsDisabled(true);
@@ -64,14 +64,15 @@ export default function Convert(){
 
                             //This is to check if the current file being iterated aligns with the formats mentioned.
                             switch(file.type){
-                                case 'image/png': break;
-                                case 'image/jpeg': break;
-                                case 'image/jpg': break;
-                                case 'image/webp': break;
+                                case 'image/png': {isLoading.current = true; break}
+                                case 'image/jpeg': {isLoading.current = true; break}
+                                case 'image/jpg': {isLoading.current = true; break}
+                                case 'image/webp': {isLoading.current = true; break}
+                                case 'image/gif': {isLoading.current = true; break}
                                 default: {
-                                    fileToConvert.pop(file);
+                                    fileToConvert.pop(file)
                                     captionFormat.classList.add('show')
-                                    setTimeout(() => captionFormat.classList.remove('show'), 3000)
+                                    setTimeout(() => captionFormat.classList.remove('show'), 3000);
                                     break;
                                 }
                             }
@@ -119,8 +120,8 @@ export default function Convert(){
         }
 
         //To show the Error message when the user hasn't chosen a format first before dragging or selecting an image
-        if(fileToConvert !== null && formatToConvert === ''){
-            setFileToConvert(null)
+        if(fileToConvert.length > 0 && formatToConvert === ''){
+            setFileToConvert([])
             caption.classList.add('show')
             setTimeout(() => {
                 caption.classList.remove('show')
@@ -143,7 +144,7 @@ export default function Convert(){
                 <section className="convert__hero--files">
                     {
 
-                        isLoading.current && fileToConvert !== null && formatToConvert !== ''
+                        isLoading.current && fileToConvert.length > 0 && formatToConvert !== ''
                         ? 
                         <div className="promise-loading" aria-hidden='true'>
                             <p>Please Wait <span className="dot-anim">.</span> <span className="dot-anim">.</span> <span className="dot-anim">.</span></p>
