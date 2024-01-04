@@ -74,12 +74,12 @@ textarea:not([rows]) {
 
 @font-face {
   font-family: "ExtraBold";
-  src: url("public/Fonts/Supreme-Extrabold.woff2") format("woff2");
+  src: url("/public/Fonts/Supreme-Extrabold.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Bold";
-  src: url("public/Fonts/Supreme-Bold.woff2") format("woff2");
+  src: url("/public/Fonts/Supreme-Bold.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
@@ -736,7 +736,7 @@ body {
   background-color: var(--clr-neutral-700);
   padding-block: calc(3vw + 2em);
 }
-.convert .caption {
+.convert .caption, .convert .caption-format {
   position: absolute;
   top: 3vw;
   font-size: var(--font-size-caption);
@@ -749,10 +749,10 @@ body {
   visibility: none;
   transition: opacity 300ms ease-in-out;
 }
-.convert .caption img {
+.convert .caption img, .convert .caption-format img {
   display: inline-block;
 }
-.convert .caption.show {
+.convert .caption.show, .convert .caption-format.show {
   opacity: 1;
   visibility: visible;
 }

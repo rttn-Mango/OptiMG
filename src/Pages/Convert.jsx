@@ -16,8 +16,6 @@ import change from '../Assets/change.svg'
 import chill from '../Assets/chill.svg'
 import download from '../Assets/download.svg'
 
-
-
 export default function Convert(){
     const [fileToConvert, setFileToConvert] = useState(null)
     const [convertedFile, setConvertedFile] = useState([])
@@ -48,8 +46,10 @@ export default function Convert(){
     //Changes the Document Title once Page mounts
     useEffect(()=> {document.title = 'Convert'}, [])
 
+    //To make a request to the render backend for api calls
     useEffect(() => {
-        const dndCaption = document.querySelector('.caption');
+        const caption = document.querySelector('.caption');
+        const captionFormat = document.querySelector('.caption-format');
 
         //Fetch request
         const convertImage = async () => {
@@ -61,6 +61,20 @@ export default function Convert(){
                         fileToConvert.map(async file => {
                             const reader = new FileReader();
                             const originalFormat = file.type;
+
+                            //This is to check if the current file being iterated aligns with the formats mentioned.
+                            switch(file.type){
+                                case 'image/png': break;
+                                case 'image/jpeg': break;
+                                case 'image/jpg': break;
+                                case 'image/webp': break;
+                                default: {
+                                    fileToConvert.pop(file);
+                                    captionFormat.classList.add('show')
+                                    setTimeout(() => captionFormat.classList.remove('show'), 3000)
+                                    break;
+                                }
+                            }
 
                             return new Promise((resolve, reject) => {
                                 reader.onload = async () => {
@@ -104,11 +118,12 @@ export default function Convert(){
             }
         }
 
+        //To show the Error message when the user hasn't chosen a format first before dragging or selecting an image
         if(fileToConvert !== null && formatToConvert === ''){
             setFileToConvert(null)
-            dndCaption.classList.add('show')
+            caption.classList.add('show')
             setTimeout(() => {
-                dndCaption.classList.remove('show')
+                caption.classList.remove('show')
                 
             }, 3000)
             return
@@ -123,6 +138,7 @@ export default function Convert(){
 
             <section className="convert__hero">
                     <p aria-hidden='true' className='caption'><img src={error} alt="Warning!" width={13} height={13}/> Please Choose a Format Below First!</p>
+                    <p aria-hidden='true' className='caption-format'><img src={error} alt="Warning!" width={13} height={13}/>Please use an image with a proper format!</p>
                     <DragAndDrop setUploadedFile={setFileToConvert} isLoading={isLoading}/>
                 <section className="convert__hero--files">
                     {

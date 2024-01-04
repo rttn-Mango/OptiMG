@@ -581,7 +581,7 @@ body{
     }
 
     //Error message which appears when user tries to convert without choosing a format first
-    .caption{
+    .caption, .caption-format{
         position: absolute;
         top: 3vw;
         font-size: var(--font-size-caption);
