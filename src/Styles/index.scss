@@ -235,7 +235,7 @@ body{
 
     h1{
         @include display();
-        padding-top: calc(5vw + 2rem);
+        padding-top: calc(3vw + 2rem);
 
         //Start Compressing button
         & a{
@@ -375,6 +375,10 @@ body{
             position: relative;
             width: max-content;
             margin-inline: auto;
+            -webkit-text-stroke: 1.3px var(--clr-text);
+            color: transparent;
+            font-family: 'Italic';
+            text-transform: uppercase;
 
             &::before{
                 position: absolute;
@@ -387,8 +391,7 @@ body{
             }
 
             &:hover, &:focus{
-                font-family: 'Italic';
-                color: var(--clr-secondary);
+                color: var(--clr-text);
                 &::before{ width: 50% }
             }
         }
@@ -650,6 +653,7 @@ body{
                 inset: 0;
                 margin: auto;
                 font-size: var(--font-size-caption);
+                padding-inline: 2rem;
             }
         }
 
@@ -821,18 +825,22 @@ body{
         background-color: transparent;
         border: 1px solid var(--clr-neutral-500);
         background-color: black;
-        padding: 1.5rem;
+        padding: calc(1vw + .5rem);
         border-radius: 50%;
         cursor: pointer;
         transition: rotate 300ms ease-in-out;
 
         &:hover{rotate: 180deg}
+
+        @media screen and (max-width: 800px) {
+            & img{height: 30px; width: 30px;}
+        }
     }
 }
 
 //Opened Hamburger menu
 .floating-menu{
-    clip-path: circle(0 at 99% 1%);
+    clip-path: circle(0 at 80% 10%);
     position: fixed;
     inset: 0 0 0 auto;
     width: calc(20dvw + 10rem);
