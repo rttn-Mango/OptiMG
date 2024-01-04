@@ -70,4 +70,6 @@ app.post('/convert', async (req, res) => {
     }
 })
 
-app.listen(PORT, () => console.log(`listening on ${PORT}`))
+app.listen(PORT, () => {
+    console.log(`listening on ${PORT}`)
+})

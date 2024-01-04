@@ -29,7 +29,7 @@ export default function Compress(){
                 <p>{file.name}</p>
                 <div className="files__card--download">
                     <p className="secondary">{file.size} ᴋʙ</p>
-                    <a title="Download" download={file.name.slice(0, file.name.lastIndexOf('.'))} key={file.base64} href={`data:${file.type};base64,${file.base64}`}><img src={dl} alt="Download" draggable="false"/></a>
+                    <a className="user-asset" title="Download" download={file.name.slice(0, file.name.lastIndexOf('.'))} key={file.base64} href={`data:${file.type};base64,${file.base64}`}><img src={dl} alt="Download" draggable="false"/></a>
                 </div>
             </div>
             )
@@ -38,7 +38,7 @@ export default function Compress(){
 
     //For downloading all images
     const downloadAllImages = () => {
-        const images = document.querySelectorAll('a');
+        const images = document.querySelectorAll('.user-asset');
         images.forEach(image => image.click())
     }
 

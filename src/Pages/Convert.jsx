@@ -31,7 +31,7 @@ export default function Convert(){
             return(
             <div className="files__card" key={index}>
                 <p>{file.name.slice(0, file.name.lastIndexOf('.'))}</p>
-                <a title="Download" download={file.name.slice(0, file.name.lastIndexOf('.'))} href={`data:image/${file.format};base64,${file.base64}`}><img src={dl} alt="Download" draggable="false"/></a>
+                <a className="user-asset" title="Download" download={file.name.slice(0, file.name.lastIndexOf('.'))} href={`data:image/${file.format};base64,${file.base64}`}><img src={dl} alt="Download" draggable="false"/></a>
             </div>
             )
         })
@@ -39,7 +39,7 @@ export default function Convert(){
 
     //For downloading all images
     const downloadAllImages = () => {
-        const images = document.querySelectorAll('a');
+        const images = document.querySelectorAll('.user-asset');
         images.forEach(image => image.click())
     }
 

@@ -273,7 +273,7 @@ body{
             height: calc(.7em + 1rem);
             border-radius: .25em;
             border: 2px solid var(--clr-text);
-            background-image: url('../Assets/newspaper.jpg');
+            background-image: url('../Assets/newspaper.webp');
             display: inline-block;
             background-position: center;
             background-clip: content-box;
@@ -289,7 +289,7 @@ body{
                 height: 100%;
                 border-radius: .25em;
                 border: 2px solid var(--clr-text);
-                background-image: url('../Assets/banana.jpg');
+                background-image: url('../Assets/banana.webp');
                 left: -.65em;
                 z-index: -1;
                 background-position: center;
@@ -304,7 +304,7 @@ body{
                 height: 100%;
                 border-radius: .25em;
                 border: 2px solid var(--clr-text);
-                background-image: url('../Assets/mess.jpg');
+                background-image: url('../Assets/mess.webp');
                 right: -.65em;
                 z-index: 1;
                 background-position: center;

@@ -11,7 +11,7 @@ export default function Footer(){
         <footer className="footer">
             <nav>
                 <div className="footer__logo">
-                    <Link to="/" title="Back to homepage"><img src={logo} alt="Site Logo" /></Link>
+                    <Link to='/' title="Back to homepage"><img src={logo} alt="Site Logo" /></Link>
                     <p><span className='accent'>rttn.Mango</span> © 2023</p>
                 </div>
 
@@ -28,9 +28,9 @@ export default function Footer(){
                 <div className="footer__socials">
                     <p className='footer__label'>Socials</p>
                     <div className="footer__socials--links">
-                        <a href="https://www.facebook.com/kiolma09" title="Facebook"><FaFacebookSquare/></a>
-                        <a href="https://github.com/rttn-Mango" title="Github"><FaGithubSquare/></a>
-                        <a href="https://www.linkedin.com/in/rttn-mango/" title="Linkedin"><FaLinkedin/></a>
+                        <Link to="https://www.facebook.com/kiolma09" title="Facebook"><FaFacebookSquare/></Link>
+                        <Link to="https://github.com/rttn-Mango" title="Github"><FaGithubSquare/></Link>
+                        <Link to="https://www.linkedin.com/in/rttn-mango/" title="Linkedin"><FaLinkedin/></Link>
                     </div>
                 </div>
             </nav>
