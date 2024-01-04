@@ -4,6 +4,7 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import Lenis from '@studio-freight/lenis'
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import { Analytics } from '@vercel/analytics/react';
 
 //Pages/Components
 import Header from "./Components/Header"
@@ -89,6 +90,7 @@ function App() {
         </Routes>
       </Suspense>
       <Footer/>
+      <Analytics />
     </>
   )
 }
