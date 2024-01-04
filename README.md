@@ -30,7 +30,7 @@ minify is a personal project which offers both image compression and image forma
 1. Open the `terminal` and `cd` to the directory that you wish.
 2. Once on you're on your chosen directory, `Clone` the repository by running `git clone https://github.com/rttn-Mango/minify.git`.
 3. Navigate to the project directory: `cd minify`.
-4. If you already have npm installed, run `npm run dev` on the terminal to run it on your local machine.
+4. If you already have npm installed, run `npm run dev` on the terminal to run the project on your local machine.
 5. To install the dependencies, run `npm i` on the terminal.
 
 ### Usage
@@ -39,7 +39,7 @@ minify is a personal project which offers both image compression and image forma
 - The `typeface` used in this project is `Supreme` and the `Fonts` are all inside `public/Fonts`.
 - `Styles/Components` contains things such as `font-faces`, `custom properties`, and also the `css reset`.
 - `Styles/index` is the main css file.
-- If you want to run the `server.js` file on your local machine, you can either change or add the scripts that you prefer or run `node server.js` on the terminal.
+- If you want to run the `server.js` file on your local machine, you can either change or add the scripts that you prefer on `package.json` or run `node server.js` on the terminal.
 - If you want to make changes on the `SCSS` files, you can either install `Live Sass Compiler Extension` on VS Code or run `sass --watch src/Styles/index.scss src/Styles/index.css` on the terminal if you have `dart sass` installed on your local machine.
 
 ### APIs
