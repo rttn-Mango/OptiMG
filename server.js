@@ -31,7 +31,9 @@ app.post('/compressed', async (req, res) => {
         const compressedImage = {base64: result.toString('base64')}
         res.status(200).end(JSON.stringify(compressedImage));
 
-    }catch (e) {console.error(e);}
+    }catch (e) {
+        res.end(e);
+    }
 })
 
 app.post('/convert', async (req, res) => {
@@ -63,7 +65,9 @@ app.post('/convert', async (req, res) => {
         }
         
         res.status(200).end(JSON.stringify(convertedImage))
-    }catch(e){console.error(e)}
+    }catch(e){
+        res.end(e)
+    }
 })
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`))

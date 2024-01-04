@@ -149,6 +149,8 @@ body{
         }
     }
 
+    &__links ul li:not(:first-of-type){margin-top: .5rem}
+
     &__socials{
         &--links{
             @include flex(row, 1rem);

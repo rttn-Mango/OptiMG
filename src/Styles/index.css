@@ -258,6 +258,9 @@ body {
   color: var(--clr-secondary);
   font-family: "Italic";
 }
+.footer__links ul li:not(:first-of-type) {
+  margin-top: 0.5rem;
+}
 .footer__socials--links {
   display: flex;
   flex-direction: row;

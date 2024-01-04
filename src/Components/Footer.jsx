@@ -11,7 +11,7 @@ export default function Footer(){
         <footer className="footer">
             <nav>
                 <div className="footer__logo">
-                    <a href="" title="Back to homepage"><img src={logo} alt="Site Logo" /></a>
+                    <Link to="/" title="Back to homepage"><img src={logo} alt="Site Logo" /></Link>
                     <p><span className='accent'>rttn.Mango</span> © 2023</p>
                 </div>
 
