@@ -55,19 +55,21 @@ function App() {
 
   //Floating Burger Animation
   useEffect(() => {
-    const main = document.querySelector('main')
+    const main = document.getElementsByTagName('main')
 
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo('.floating-burger', {scale: 0, opacity: 0}, {
       scale: 1,
       opacity: 1,
       transition: {
-        duration: .5,
+        duration: 1,
       },
       scrollTrigger: {
         trigger: main,
         scrub: 1,
-        start: 'center center',
+        markers: true,
+        start: '10% center',
+        end: 'top'
       }
     })
   }, [])
