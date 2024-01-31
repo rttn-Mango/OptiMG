@@ -67,6 +67,7 @@ function App() {
       scrollTrigger: {
         trigger: main,
         scrub: 1,
+        markers: true,
         start: '10% center',
         end: 'top'
       }
