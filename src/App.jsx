@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom"
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Lenis from '@studio-freight/lenis'
@@ -21,7 +21,6 @@ const Convert = lazy(() => import("./Pages/Convert"))
 import burger from '/public/burger.svg'
 
 function App() {
-  const main = useRef(null)
   const [isOpened, setIsOpened] = useState(null);
 
   //To open or close the Hamburger Navigation
