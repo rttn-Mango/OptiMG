@@ -106,7 +106,7 @@ export default function Compress(){
     }, [uploadedFile])
 
     return(
-        <main className="compress">
+        <main className="compress" id="#trigger">
             <section className="compress__hero">
                 <DragAndDrop setUploadedFile={setUploadedFile} isLoading={isLoading}/>
 

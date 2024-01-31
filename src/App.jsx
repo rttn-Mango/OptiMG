@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Routes, Route } from "react-router-dom"
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Lenis from '@studio-freight/lenis'
@@ -21,6 +21,7 @@ const Convert = lazy(() => import("./Pages/Convert"))
 import burger from '/public/burger.svg'
 
 function App() {
+  const main = useRef(null)
   const [isOpened, setIsOpened] = useState(null);
 
   //To open or close the Hamburger Navigation
@@ -55,8 +56,6 @@ function App() {
 
   //Floating Burger Animation
   useEffect(() => {
-    const main = document.getElementsByTagName('main')
-
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo('.floating-burger', {scale: 0, opacity: 0}, {
       scale: 1,
@@ -65,11 +64,10 @@ function App() {
         duration: 1,
       },
       scrollTrigger: {
-        trigger: main,
+        trigger: '#trigger',
         scrub: 1,
-        markers: true,
-        start: '10% center',
-        end: 'top'
+        start: '10% top',
+        end: '10% top',
       }
     })
   }, [])

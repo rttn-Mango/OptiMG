@@ -135,7 +135,7 @@ export default function Convert(){
     }, [formatToConvert, fileToConvert])
 
     return(
-        <main className="convert">
+        <main className="convert" id="#trigger">
 
             <section className="convert__hero">
                     <p aria-hidden='true' className='caption'><img src={error} alt="Warning!" width={13} height={13}/> Please Choose a Format Below First!</p>

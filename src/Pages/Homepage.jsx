@@ -15,7 +15,7 @@ export default function Homepage(){
     useEffect(()=> {document.title = 'Home'}, [])
 
     return (
-        <main className="homepage">
+        <main className="homepage" id="#trigger">
             <h1 aria-label='Optimize all your assets with minify.'>
                 Optimize <Link to='/compress' title="Start Compressing">By Compressing</Link> all your assets <div className='img' title='Your Assets'/> with minify.
             </h1>
