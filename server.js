@@ -1,10 +1,10 @@
-import express from 'express';
-import cors from 'cors'
+import cors from 'cors';
 import tinify from 'tinify';
 import bodyParser from 'body-parser';
 import {Buffer} from 'buffer'
 import dotenv from 'dotenv'
 import axios from 'axios';
+import express from 'express'
 
 const PORT = 3000;
 const app = express();
