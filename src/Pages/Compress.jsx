@@ -163,7 +163,7 @@ export default function Compress(){
 
             <section className="compress__closing">
                 <p>It&apos;s that <span className="primary">Simple</span>!</p>
-                <p>Minify simplifies the compression process, ensuring your digital assets are optimized for speed and efficiency.</p>
+                <p>OptiMG simplifies the compression process, ensuring your digital assets are optimized for speed and efficiency.</p>
             </section>
 
             <section className="compress__cta">

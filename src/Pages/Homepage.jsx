@@ -17,7 +17,7 @@ export default function Homepage(){
     return (
         <main className="homepage" id="#trigger">
             <h1 aria-label='Optimize all your assets with minify.'>
-                Optimize <Link to='/compress' title="Start Compressing">By Compressing</Link> all your assets <div className='img' title='Your Assets'/> with minify.
+                Optimize <Link to='/compress' title="Start Compressing">By Compressing</Link> all your assets <div className='img' title='Your Assets'/> with OptiMG.
             </h1>
             <p aria-label='Or convert them to a new one' className='homepage__sub'>Or <Link to='/convert' title='Convert' className='secondary'>Convert <img src={arrow} alt="Right Arrow" draggable="false" width={30} height={30}/></Link> them to a new one.</p>
 
@@ -35,12 +35,12 @@ export default function Homepage(){
                 </picture>
 
                 
-                <h2>At minify, we understand the importance of a <span className='secondary'>simple</span> and <span className='secondary'>minimal</span> experience.</h2>
+                <h2>At OptiMG, we understand the importance of a <span className='secondary'>simple</span> and <span className='secondary'>minimal</span> experience.</h2>
             </section>
 
             <section className="homepage__mission">
                 <h2>Our <span className='primary'>mission</span> you ask?</h2>
-                <p>It&apos;s simple, minify is on a mission to make a simple, easy to use, and seamless compression site which <span className='secondary'>Developers</span>, <span className='secondary'>Designers</span>, and average consumers can enjoy can enjoy.</p>
+                <p>It&apos;s simple, OptiMG is on a mission to make a simple, easy to use, and seamless compression site which <span className='secondary'>Developers</span>, <span className='secondary'>Designers</span>, and average consumers can enjoy can enjoy.</p>
             </section>
 
             <div className="wrapper">
@@ -65,9 +65,9 @@ export default function Homepage(){
             </div>
 
             <section className="homepage__closing">
-                <p>Try <span className="primary">minify</span> today</p>
-                <p>Try minify today and experience the magic of seamless compression and conversion. </p>
-                <p>Empower your website, engage your audience, and embrace the future of digital optimization with minify.</p>
+                <p>Try <span className="primary">OptiMG</span> today</p>
+                <p>Try OptiMG today and experience the magic of seamless compression and conversion. </p>
+                <p>Empower your website, engage your audience, and embrace the future of digital optimization with OptiMG.</p>
             </section>
 
             <div className="wrapper">
