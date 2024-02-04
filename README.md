@@ -1,6 +1,6 @@
-# minify
+# OptiMG
 
-minify is a personal project which offers both image compression and image format conversion using both the tinify and cloudmersive api. The formats for the conversion is currently limited to JPG, PNG, and WebP.
+OptiMG is a personal project which offers both image compression and image format conversion using both the tinify and cloudmersive api. The formats for the conversion is currently limited to JPG, PNG, and WebP.
 
 ## Table of Contents
 - [Overview](#overview)
